@@ -12,16 +12,12 @@ RSpec.describe Factorie do
   end
 
   describe "factory_girl" do
-    specify "factory girl is warn message" do
-      expect {
-        FactoryGirl
-      }.to output.to_stderr
-    end
-
-    it "autoload FactoryGirl" do
-      expect {
-        FactoryGirl
-      }.not_to raise_error
+    context "autoload factory_girl" do
+      it "suspend factory_girl" do
+        expect {
+          FactoryGirl
+        }.to raise_error(RuntimeError)
+      end
     end
   end
 end
